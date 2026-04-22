@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Unbounded, Golos_Text } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { getMetadataBase } from "@/lib/app-url";
+import { CursorTrail } from "@/components/ui/CursorTrail";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+import { CookieBanner } from "@/components/ui/CookieBanner";
+import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -18,9 +23,13 @@ const golos = Golos_Text({
 });
 
 export const metadata: Metadata = {
-  title: "ChatGPT Plus и Spotify Premium — активация без иностранной карты",
+  title: {
+    default: "ChatGPT Plus без иностранной карты — GBT STORE",
+    template: "%s | GBT STORE",
+  },
   description:
-    "Только две услуги: ChatGPT Plus и Spotify Premium на ваш аккаунт. Оплата в рублях, ~15 минут, гарантия 30 дней.",
+    "Подключаем ChatGPT Plus и Pro на ваш аккаунт. Оплата картой РФ, активация за 3–15 минут, гарантия на весь срок.",
+  metadataBase: getMetadataBase(),
 };
 
 export default function RootLayout({
@@ -31,11 +40,17 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={cn("dark", unbounded.variable, golos.variable)}
+      className={cn(unbounded.variable, golos.variable)}
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        {children}
+        <AnimatedBackground />
+        <CursorTrail />
+        <div className="relative" style={{ zIndex: 1 }}>
+          {children}
+        </div>
+        <CookieBanner />
+        <YandexMetrika />
       </body>
     </html>
   );

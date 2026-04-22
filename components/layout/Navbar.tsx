@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "/chatgpt", label: "ChatGPT Plus" },
+  { href: "/", label: "ChatGPT Plus" },
   { href: "/spotify", label: "Spotify Premium" },
   { href: "/guarantee", label: "Гарантии" },
   { href: "/faq", label: "FAQ" },
@@ -45,7 +45,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <Button size="sm" className="hidden shadow-lg shadow-primary/20 sm:inline-flex" asChild>
-            <Link href="/order">Оформить</Link>
+            <Link href="/checkout">Оформить</Link>
           </Button>
           {/* Burger */}
           <button
@@ -74,7 +74,7 @@ export function Navbar() {
             ))}
           </nav>
           <Button size="sm" className="mt-3 w-full shadow-lg shadow-primary/20" asChild>
-            <Link href="/order" onClick={() => setOpen(false)}>
+            <Link href="/checkout" onClick={() => setOpen(false)}>
               Оформить
             </Link>
           </Button>

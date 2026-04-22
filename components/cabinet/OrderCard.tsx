@@ -76,7 +76,7 @@ export function OrderCard({ product, status, validUntil }: Props) {
         </div>
         <div className="flex flex-wrap gap-3">
           <Button asChild>
-            <Link href="/order">Продлить</Link>
+            <Link href="/checkout">Продлить</Link>
           </Button>
           <Button variant="outline" asChild>
             <a href="#messages">Написать по заказу</a>
